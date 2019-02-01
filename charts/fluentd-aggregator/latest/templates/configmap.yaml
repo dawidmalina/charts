@@ -119,5 +119,5 @@ data:
     {{- end }}
 
     {{- if eq .Values.output.type "custom" }}
-{{ .Values.output.customConf | indent 4 }}
+{{ .Values.output.customConf | indent 4 | quote }}
     {{- end }}

@@ -10,8 +10,7 @@ metadata:
 data:
 {{- range $key, $value := .Values.configMaps }}
 {{- if $value }}
-  {{ $key }}: |-
-{{ $value | quote | indent 4 }}
+  {{ $key }}: {{ toYaml $value | indent 4 }}
 {{- end }}
 {{- end }}
 

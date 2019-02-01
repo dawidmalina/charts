@@ -11,7 +11,7 @@ data:
 {{- range $key, $value := .Values.configMaps }}
 {{- if $value }}
   {{ $key }}: |-
-{{ $value | indent 4 }}
+{{ $value | quote | indent 4 }}
 {{- end }}
 {{- end }}
 
@@ -119,5 +119,5 @@ data:
     {{- end }}
 
     {{- if eq .Values.output.type "custom" }}
-{{ .Values.output.customConf | indent 4 | quote }}
+{{ .Values.output.customConf | quote | indent 4 }}
     {{- end }}
